@@ -11,3 +11,21 @@
     </div>
   </div>
 </template>
+
+<script>
+import { ref } from "vue";
+import { useMatrix } from '@/store/index'
+import { storeToRefs } from "pinia";
+
+export default {
+  setup() {
+    const todo = ref("");
+    const store = useMatrix();
+    store.fetchTodos()
+    // const { matrix } = storeToRefs(store);
+    // console.log(matrix)
+    // console.log(store.matrix)
+    return { todo };
+  },
+};
+</script>

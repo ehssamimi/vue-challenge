@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import {MatrixRow} from "../assets/types";
 
 export const useMatrix = defineStore({
-    id: 'todos',
+    id: 'matrix',
     state: () => ({
         matrix: [] as MatrixRow[],
         loading: false,

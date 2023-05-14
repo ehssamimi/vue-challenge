@@ -1,6 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { facts } from '@/assets/facts'
 import Home from '../views/Home.vue'
+import { useMatrix } from '../store/index'
+
+// import { createPinia } from 'pinia';
+// import { createApp } from 'vue'
+// import App from '../App.vue'
+//
+// const pinia = createPinia()
+// const app = createApp(App)
+// app.use(pinia)
+// const store = useMatrix();
+// store.fetchTodos()
+// console.log(store.matrix)
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,6 +46,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/facts',
     name: 'FactList',
     component: () => import('../views/FactList.vue')
+  },
+  {
+    path: '/private',
+    name: 'Private',
+    component: () => import('../views/PrivateRoute.vue'),beforeEnter:(to,_,next)=>{
+      const store = useMatrix();
+      console.log(store.matrix)
+    }
   },
   {
     path: '/:catchAll(.*)',
